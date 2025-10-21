@@ -43,6 +43,12 @@ namespace Microsoft.Identity.Test.LabInfrastructure
             {
                 var certPasswrod = Environment.GetEnvironmentVariable("CERTIFICATE_PASSWORD");
                 var certLocation = Environment.GetEnvironmentVariable("CERTIFICATE_LOCATION");
+                
+                if (string.IsNullOrEmpty(certLocation))
+                {
+                    return null;
+                }
+                
                 var cert = new X509Certificate2(certLocation, certPasswrod, X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
                 return cert;
             }

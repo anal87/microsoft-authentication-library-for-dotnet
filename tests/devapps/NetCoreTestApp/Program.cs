@@ -68,7 +68,16 @@ namespace NetCoreTestApp
             var ccaSettings = ConfidentialAppSettings.GetSettings(Cloud.Public);
             s_clientIdForConfidentialApp = ccaSettings.ClientId;
             s_ccaAuthority = ccaSettings.Authority;
-            s_confidentialClientCertificate = ccaSettings.GetCertificate();
+            
+            try
+            {
+                s_confidentialClientCertificate = ccaSettings.GetCertificate();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Warning: Could not load certificate: {ex.Message}");
+                Console.WriteLine("Confidential client features will not be available.");
+            }
 
             var pca = CreatePca();
             RunConsoleAppLogicAsync(pca).Wait();
@@ -415,6 +424,11 @@ namespace NetCoreTestApp
 
         private static IConfidentialClientApplication CreateCca()
         {
+            if (s_confidentialClientCertificate == null)
+            {
+                throw new InvalidOperationException("Certificate not available. Cannot create confidential client application.");
+            }
+            
             ConfidentialClientApplicationBuilder ccaBuilder = ConfidentialClientApplicationBuilder
                 .Create(s_clientIdForConfidentialApp)
                 .WithAuthority(s_ccaAuthority)
