@@ -1,0 +1,21 @@
+{
+  "solution": {
+    "path": "LibsAndSamples.sln",
+    "projects": [
+      "src\\client\\Microsoft.Identity.Client\\Microsoft.Identity.Client.csproj",
+      "src\\client\\Microsoft.Identity.Client.Extensions.Msal\\Microsoft.Identity.Client.Extensions.Msal.csproj",
+      "tests\\Microsoft.Identity.Test.Common\\Microsoft.Identity.Test.Common.csproj",
+      "tests\\Microsoft.Identity.Test.Unit\\Microsoft.Identity.Test.Unit.csproj",
+      "tests\\Microsoft.Identity.Test.LabInfrastructure\\Microsoft.Identity.Test.LabInfrastructure.csproj",
+      "tests\\Microsoft.Identity.Test.Integration.netcore\\Microsoft.Identity.Test.Integration.NetCore.csproj",
+      "tests\\Microsoft.Identity.Test.Performance\\Microsoft.Identity.Test.Performance.csproj",
+      "tests\\CacheCompat\\CommonCache.Test.Common\\CommonCache.Test.Common.csproj",
+      "tests\\CacheCompat\\CommonCache.Test.Unit\\CommonCache.Test.Unit.csproj",
+      "tests\\CacheCompat\\CommonCache.Test.MsalJava\\CommonCache.Test.MsalJava.csproj",
+      "tests\\CacheCompat\\CommonCache.Test.MsalV3\\CommonCache.Test.MsalV3.csproj",
+      "tests\\devapps\\NetCoreTestApp\\NetCoreTestApp.csproj",
+      "tests\\devapps\\CacheExtension\\CacheExtension.csproj",
+      "tests\\devapps\\WebApi\\WebApi.csproj"
+    ]
+  }
+}
